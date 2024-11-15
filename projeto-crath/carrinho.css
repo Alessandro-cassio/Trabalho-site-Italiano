@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f6f6f6;
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  background: #111;
+  color: white;
+  font-size: 24px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.main-container {
+  padding: 20px; /* Adiciona espaçamento ao redor do main */
+}
+
+main {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Centraliza o main */
+  max-width: 1200px; /* Largura máxima para o conteúdo */
+}
+
+.page-title {
+  font-size: 40px;
+  padding: 20px 0;
+  text-align: center;
+  color: #333;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content section {
+  flex: 1;
+  margin-right: 20px; /* Espaço entre a seção e o aside */
+}
+
+.content aside {
+  min-width: 250px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  background-color: #3bc55b;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #34a853;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead tr {
+  border-bottom: 3px solid #eee;
+}
+
+table thead tr th {
+  text-align: left;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  color: #666;
+}
+
+table tbody tr {
+  border-bottom: 3px solid #eee;
+}
+
+table tbody tr:last-child {
+  border: 0;
+}
+
+table tbody tr td {
+  padding: 20px 0; /* Menos espaço vertical nas células */
+}
+
+.product {
+  display: flex;
+  align-items: center;
+}
+
+.product img {
+  border-radius: 6px;
+  width: 60px; /* Tamanho fixo da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.product .info {
+  margin-left: 20px;
+}
+
+.product .info .name {
+  font-size: 20px;
+  margin-bottom: 5px; /* Menos espaço abaixo do nome */
+}
+
+.product .info .category {
+  color: #666;
+}
+
+.qty {
+  background: #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 60px;
+  border-radius: 20px;
+  height: 30px;
+}
+
+.qty span {
+  margin: 0 10px;
+}
+
+.qty button {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+}
+
+.qty button:hover {
+  background: #ddd;
+}
+
+.remove {
+  background: #eee;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.remove:hover {
+  background: #ddd;
+}
+
+aside .box {
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #222;
+  border-radius: 5px;
+}
+
+aside .box header {
+  padding: 15px 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  background: #f1f1f1;
+}
+
+aside .box .info {
+  padding: 20px;
+  font-size: 16px;
+}
+
+aside .box .info > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+aside .box .info button {
+  color: rgb(118, 167, 40);
+  background: transparent;
+  border: 0;
+}
+
+aside .box footer {
+  padding: 15px 20px;
+  background: #ddd;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+aside > button {
+  border: 0;
+  padding: 15px 0;
+  color: white;
+  background: #28a745;
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+aside > button:hover {
+  background: #3bc55b;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRATH - Login e Cadastro</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            
+            <div id="formContainer">
+                <form id="loginForm" class="form-signin">
+                    <h2>Login</h2>
+                    <input type="text" id="nome" class="form-control" placeholder="Nome" required autofocus>
+                    <input type="password" id="senha" class="form-control" placeholder="Senha" required>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                </form>
+
+                <form id="registerForm" class="form-signin" style="display: none;">
+                    <h2>Cadastro</h2>
+                    <input type="text" id="cadastroNome" class="form-control" placeholder="Nome" required>
+                    <input type="password" id="cadastroSenha" class="form-control" placeholder="Senha" required>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
+                    <p id="registerMessage" style="display: none; color: green;">Cadastrado com sucesso!</p>
+                </form>
+                
+                <p id="toggleForm" style="cursor: pointer; color: blue;">Criar conta</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const toggleForm = document.getElementById('toggleForm');
+        const registerMessage = document.getElementById('registerMessage');
+
+        // Função para armazenar os dados do usuário
+        function saveUserData(nome, senha) {
+            localStorage.setItem('usuarioNome', nome);
+            localStorage.setItem('usuarioSenha', senha);
+        }
+
+        // Função para verificar se o usuário existe
+        function userExists(nome) {
+            return localStorage.getItem('usuarioNome') === nome;
+        }
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const senha = document.getElementById('senha').value;
+
+            if (userExists(nome) && localStorage.getItem('usuarioSenha') === senha) {
+                window.location.href = 'index.html'; // Redirecionar para a tela principal
+            } else {
+                alert('Nome ou senha incorretos!');
+            }
+        });
+
+        registerForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const cadastroNome = document.getElementById('cadastroNome').value;
+            const cadastroSenha = document.getElementById('cadastroSenha').value;
+
+            // Salvar os dados do usuário
+            saveUserData(cadastroNome, cadastroSenha);
+            registerMessage.style.display = 'block';
+            setTimeout(() => {
+                registerMessage.style.display = 'none';
+                toggleForm.click(); // Volta para o login após o cadastro
+            }, 2000);
+        });
+
+        toggleForm.addEventListener('click', function() {
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                toggleForm.textContent = 'Criar conta';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                toggleForm.textContent = 'Já tenho conta';
+            }
+        });
+    </script>
+</body>
+</html>
